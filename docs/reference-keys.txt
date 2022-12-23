@@ -3,13 +3,11 @@ introduction-to-gwas-ancestry-and-local-ancestry-inference
 basic-genetics
 gwas-and-why-ancestry-matters
 project-motivations-local-ancestry-inference
-classification-decision-trees-the-building-blocks-of-random-forests
+decision-trees-the-building-blocks-of-random-forests
 introduction
 classification-tree-example
 bagging-and-random-forests
 ensemble-learning-methods-bagging
 random-forests
 applications-of-random-forests-in-local-ancestry-inference
-results
 toy-data-results
-decision-trees-the-building-blocks-of-random-forests
