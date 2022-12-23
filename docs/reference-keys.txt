@@ -4,3 +4,11 @@ basic-genetics
 gwas-and-why-ancestry-matters
 project-motivations-local-ancestry-inference
 a-caucus-race-and-a-long-tale
+classification-decision-trees-the-building-blocks-of-random-forests
+introduction
+classification-tree-example
+bagging-and-random-forests
+ensemble-learning-methods-bagging
+random-forests
+applications-of-random-forests-in-local-ancestry-inference
+results

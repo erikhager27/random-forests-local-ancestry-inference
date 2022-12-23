@@ -4,7 +4,7 @@ The random forest algorithm can be applied to genetic data to infer local ancest
 
 <center>
 
-![Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries.(Source: Freddy Barragan)  ](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig9.png)
+![Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries.(Source: Freddy Barragan)  ](./figures/fig9.png)
 
 </center>
 
@@ -16,7 +16,7 @@ We then used the `caret` package in RStudio to train a random forest algorithm o
 
 <center>
 
-![Figure 10: This plot shows the out of bag accuracy of the random forest algorithm with variable subset sizes ranging from 1 to 30. The optimal fit is with 5-predictor subsets.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig10.png)
+![Figure 10: This plot shows the out of bag accuracy of the random forest algorithm with variable subset sizes ranging from 1 to 30. The optimal fit is with 5-predictor subsets.](./figures/fig10.png)
 
 </center>
 
@@ -25,13 +25,13 @@ The final model chosen by our random forest algorithm was one with a subset size
 
 <center>
 
-![Figure 11: This table lists the top 10 SNPs in terms of split importance. It includes our 4 SNPs of interest labeled with s, and 6 noise SNPs labeled with *t*.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig11.png)
+![Figure 11: This table lists the top 10 SNPs in terms of split importance. It includes our 4 SNPs of interest labeled with s, and 6 noise SNPs labeled with *t*.](./figures/fig11.png)
 
 </center>
 
 <center>
 
-![Figure 12: This plot shows the mean decrease in the Gini coefficient achieved by each SNP as a predictor in our model.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig12.png)
+![Figure 12: This plot shows the mean decrease in the Gini coefficient achieved by each SNP as a predictor in our model.](./figures/fig12.png)
 
 </center>
 
@@ -39,7 +39,7 @@ Figures 11 and 12 illustrate the importance of each SNP in our model as a split 
 
 <center>
 
-![Figure 13: This is the confusion matrix detailing how many of the 500 observations from each population our final model predicted correctly and incorrectly, as well as an overall error estimate.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig13.png)
+![Figure 13: This is the confusion matrix detailing how many of the 500 observations from each population our final model predicted correctly and incorrectly, as well as an overall error estimate.](./figures/fig13.png)
 
 </center>
 

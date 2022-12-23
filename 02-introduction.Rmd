@@ -20,7 +20,7 @@ Ancestry, however, can often be a confounding factor that muddles the true relat
 
 <center>
 
-![Figure 2: This is a DAG depicting the confounding effect of ancestry in GWAS. Doubt can be cast on a potential relationship between a genotype and a trait if ancestry has a true causal relationship with both.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig2.png)
+![Figure 2: This is a DAG depicting the confounding effect of ancestry in GWAS. Doubt can be cast on a potential relationship between a genotype and a trait if ancestry has a true causal relationship with both.](./figures/fig2.png)
 
 </center>
 
@@ -30,7 +30,7 @@ Our Statistical Genetics course has provided us with a diverse sampling of metho
 
 <center>
 
-![Figure 3: Local ancestry inference can allow researchers to find the allele ancestries at each locus of an individual's genome, denoted by blocks of color in the genome following LAI.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig3.png)
+![Figure 3: Local ancestry inference can allow researchers to find the allele ancestries at each locus of an individual's genome, denoted by blocks of color in the genome following LAI.](./figures/fig3.png)
 
 </center>
 

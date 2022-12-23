@@ -6,7 +6,7 @@ We can mitigate the flaws of a decision tree by aggregating the results of a bun
 
 <center>
 
-![Figure 7: The idea of bootstrapping demonstrated. Image sourced from: https://online.stat.psu.edu/stat555/node/119/](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig7.png)
+![Figure 7: The idea of bootstrapping demonstrated. Image sourced from: https://online.stat.psu.edu/stat555/node/119/](./figures/fig7.png)
 
 </center>
 
@@ -17,7 +17,7 @@ As shown in figure 7, Bagging is an ensemble learning technique which helps impr
 
 <center>
 
-![Figure 8: Each individual tree has a different subset of predictors and thus differing classifications, both denoted by the varying colors of each decision node.](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig8.png)
+![Figure 8: Each individual tree has a different subset of predictors and thus differing classifications, both denoted by the varying colors of each decision node.](./figures/fig8.png)
 
 </center>
 
