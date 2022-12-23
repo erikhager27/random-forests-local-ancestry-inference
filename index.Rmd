@@ -9,3 +9,4 @@ site: bookdown::bookdown_site
 This bookdown document serves as a digital artifact of our final presentation on Random Forests and Local Ancestry Inference as part of our Statistical Genetics capstone course at Macalester College. 
 
 Through starting with some basic genetics, an introduction of genome wide association studies and local ancestry inference, we plan to discuss our intentions and motivations in Chapter 2. In Chapter 3, we discuss the building blocks of random forests -- decision trees. Subsequently, building off of this discussion, we delve into bootstrap aggregation and random forests. In our final section, we hope to unify our project by applying the material discussed in previous chapters to a small case study using toy data.
+
