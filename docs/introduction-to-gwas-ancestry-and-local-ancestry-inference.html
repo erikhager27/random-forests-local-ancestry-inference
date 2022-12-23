@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="a-caucus-race-and-a-long-tale.html"/>
+<link rel="next" href="classification-decision-trees-the-building-blocks-of-random-forests.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -78,7 +78,20 @@
 <li class="chapter" data-level="2.2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters"><i class="fa fa-check"></i><b>2.2</b> GWAS and Why Ancestry Matters</a></li>
 <li class="chapter" data-level="2.3" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#project-motivations-local-ancestry-inference"><i class="fa fa-check"></i><b>2.3</b> Project Motivations &amp; Local Ancestry Inference</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="3" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html"><i class="fa fa-check"></i><b>3</b> Classification Decision Trees: The building blocks of Random Forests</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Bagging and Random Forests</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging"><i class="fa fa-check"></i><b>4.1</b> Ensemble Learning Methods: Bagging</a></li>
+<li class="chapter" data-level="4.2" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#random-forests"><i class="fa fa-check"></i><b>4.2</b> Random Forests</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Applications of Random Forests in Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#results"><i class="fa fa-check"></i><b>5.1</b> Results</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -105,7 +118,7 @@
 <p>The human genome consists of 23 pairs of chromosomes, each of which contains millions of nucleotide base pairs joined together in a double helix. The nucleotides adenine (A) and thymine (T) always pair with each other, as do cytosine (C) and guanine (G). At any point along a person’s DNA strand, the sequence of A’s, T’s, C’s, and G’s dictates characteristics of that person. When comparing any two human genomes, the entire strands of nucleotides will be about 99% identical. However, there are small portions of the genome where the sequences vary from person to person, and these places are called genetic variants. Different nucleotide sequences in these areas are what cause variation in the human population.</p>
 <center>
 <div class="figure">
-<img src="/Users/brianlee/Dropbox/My%20Mac%20(Brian’s%20MacBook%20Pro)/Desktop/2022%20FALL/STAT%20494/GWAS_rf/figures/fig1.png" alt="" />
+<img src="figures/fig1.png" alt="" />
 <p class="caption">Figure 1: This image depicts segments of two copies of a person’s chromosome, representing one received from each parent. The outlined section represents a SNV, showing a single position along the strands where different alleles (A/T vs. G/C) were received from the two parents. (Source: Kelsey Grinde)</p>
 </div>
 </center>
@@ -117,7 +130,7 @@
 <p>Ancestry, however, can often be a confounding factor that muddles the true relationship between SNPs and observed traits during GWAS, as depicted in Figure 2. Consider, for example, a study attempting to determine which SNPs cause brown hair, but without accounting for German ancestry as a possible confounder. A genotype with SNPs resulting from a German pedigree might show a strong correlation with brown hair if people of German descent are more likely to have brown hair in general. However, concluding that those particular SNPs cause brown hair would be erroneous, since it was really the fact that the people with those certain SNP characteristics were of German origin that caused them to have brown hair. Thus, gathering information about subjects’ ancestries is a vital part of GWAS, in that including such data in the regression models helps correct for this type of confounding effect.</p>
 <center>
 <div class="figure">
-<img src="/Users/brianlee/Dropbox/My%20Mac%20(Brian’s%20MacBook%20Pro)/Desktop/2022%20FALL/STAT%20494/GWAS_rf/figures/fig2.png" alt="" />
+<img src="figures/fig2.png" alt="" />
 <p class="caption">Figure 2: This is a DAG depicting the confounding effect of ancestry in GWAS. Doubt can be cast on a potential relationship between a genotype and a trait if ancestry has a true causal relationship with both.</p>
 </div>
 </center>
@@ -127,7 +140,7 @@
 <p>Our Statistical Genetics course has provided us with a diverse sampling of methods used for genome wide association studies. For our project, we wanted to use this tool set of methodologies to expand on themes of ancestry and classification by honing in on <em>local ancestry inference (LAI)</em>. That is, we wanted to see if we could infer the ancestral origins of certain segments of an individual’s genome based on the presence, or absence, of genetic variants of interest.</p>
 <center>
 <div class="figure">
-<img src="/Users/brianlee/Dropbox/My%20Mac%20(Brian’s%20MacBook%20Pro)/Desktop/2022%20FALL/STAT%20494/GWAS_rf/figures/fig3.png" alt="" />
+<img src="figures/fig3.png" alt="" />
 <p class="caption">Figure 3: Local ancestry inference can allow researchers to find the allele ancestries at each locus of an individual’s genome, denoted by blocks of color in the genome following LAI.</p>
 </div>
 </center>
@@ -141,7 +154,7 @@
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-caucus-race-and-a-long-tale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="classification-decision-trees-the-building-blocks-of-random-forests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

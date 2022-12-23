@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Bagging and Random Forests | Random Forests and Local Ancestry Inference</title>
+  <meta name="description" content="Chapter 4 Bagging and Random Forests | Random Forests and Local Ancestry Inference" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Bagging and Random Forests | Random Forests and Local Ancestry Inference" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Bagging and Random Forests | Random Forests and Local Ancestry Inference" />
+  
+  
+  
+
+<meta name="author" content="Erik Hager, Brian Lee" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="classification-decision-trees-the-building-blocks-of-random-forests.html"/>
+<link rel="next" href="applications-of-random-forests-in-local-ancestry-inference.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Random Forests and Local Ancestry Inference</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to our eBook!</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><i class="fa fa-check"></i><b>2</b> Introduction to GWAS, Ancestry, and Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#basic-genetics"><i class="fa fa-check"></i><b>2.1</b> Basic Genetics</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters"><i class="fa fa-check"></i><b>2.2</b> GWAS and Why Ancestry Matters</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#project-motivations-local-ancestry-inference"><i class="fa fa-check"></i><b>2.3</b> Project Motivations &amp; Local Ancestry Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html"><i class="fa fa-check"></i><b>3</b> Classification Decision Trees: The building blocks of Random Forests</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Bagging and Random Forests</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging"><i class="fa fa-check"></i><b>4.1</b> Ensemble Learning Methods: Bagging</a></li>
+<li class="chapter" data-level="4.2" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#random-forests"><i class="fa fa-check"></i><b>4.2</b> Random Forests</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Applications of Random Forests in Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#results"><i class="fa fa-check"></i><b>5.1</b> Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Random Forests and Local Ancestry Inference</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bagging-and-random-forests" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Bagging and Random Forests<a href="bagging-and-random-forests.html#bagging-and-random-forests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ensemble-learning-methods-bagging" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Ensemble Learning Methods: Bagging<a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can mitigate the flaws of a decision tree by aggregating the results of a bunch of trees to narrow in on a decision that is globally optimal. This is essentially the idea behind ensemble learners. There are two main types of ensemble learners, but for the purposes of our project, we will be focusing on bagging, or <em>Bootstrap AGGregatING.</em></p>
+<center>
+<div class="figure">
+<img src="figures/fig7.png" alt="" />
+<p class="caption">Figure 7: The idea of bootstrapping demonstrated. Image sourced from: <a href="https://online.stat.psu.edu/stat555/node/119/" class="uri">https://online.stat.psu.edu/stat555/node/119/</a></p>
+</div>
+</center>
+<p>As shown in figure 7, Bagging is an ensemble learning technique which helps improve the performance and accuracy of machine learning algorithms by employing a resampling technique known as bootstrapping. From our true population, we take a sample as an estimation of our population of interest. From there, rather than collecting many new samples from the population, we can randomly sample multiple subsets of our collected data to simulate the collection of multiple new samples from the population of interest. Through this process, we can build a model which produces results more similar to the true sampling distribution. Now, extending this idea, we can produce multiple weak, unpruned learners for each bootstrapped sample, combining the predictions made by each of these results to create a more powerful algorithm.</p>
+</div>
+<div id="random-forests" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Random Forests<a href="bagging-and-random-forests.html#random-forests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<center>
+<div class="figure">
+<img src="figures/fig8.png" alt="" />
+<p class="caption">Figure 8: Each individual tree has a different subset of predictors and thus differing classifications, both denoted by the varying colors of each decision node.</p>
+</div>
+</center>
+<p>This is the core idea behind random forests! Interestingly, the flaws of a decision tree is what makes the Random Forest such a strong learner – by using many overfit trees, each respectively trained with a different bootstrapped sample, we can aggregate these results to build a more robust model through taking the majority vote from all of the trees within the forest.</p>
+<p>We’ve discussed at length why a random forest algorithm is a forest, but what’s random about it? There are two things:</p>
+<ul>
+<li>By using many weak, overspecific decision trees, we can use the process of bagging to select a random bootstrap sample to be used in each tree</li>
+<li>Random forests use a randomly selected subset of predictors for each tree, meaning that rather than searching for the next best split from all the predictors, the tree must choose from the subset of predictors it has in its toolbox.</li>
+</ul>
+<p>Through these two important characteristics of random forests, we can <em>decorrelate</em> each tree within the Random Forest to mitigate the issues of high variance, greediness, and overfitting previously mentioned.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="classification-decision-trees-the-building-blocks-of-random-forests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications-of-random-forests-in-local-ancestry-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/edit/master/04-bagging_rf.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/blob/master/04-bagging_rf.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Classification Decision Trees: The building blocks of Random Forests | Random Forests and Local Ancestry Inference</title>
+  <meta name="description" content="Chapter 3 Classification Decision Trees: The building blocks of Random Forests | Random Forests and Local Ancestry Inference" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Classification Decision Trees: The building blocks of Random Forests | Random Forests and Local Ancestry Inference" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Classification Decision Trees: The building blocks of Random Forests | Random Forests and Local Ancestry Inference" />
+  
+  
+  
+
+<meta name="author" content="Erik Hager, Brian Lee" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"/>
+<link rel="next" href="bagging-and-random-forests.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Random Forests and Local Ancestry Inference</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to our eBook!</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><i class="fa fa-check"></i><b>2</b> Introduction to GWAS, Ancestry, and Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#basic-genetics"><i class="fa fa-check"></i><b>2.1</b> Basic Genetics</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters"><i class="fa fa-check"></i><b>2.2</b> GWAS and Why Ancestry Matters</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#project-motivations-local-ancestry-inference"><i class="fa fa-check"></i><b>2.3</b> Project Motivations &amp; Local Ancestry Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html"><i class="fa fa-check"></i><b>3</b> Classification Decision Trees: The building blocks of Random Forests</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Bagging and Random Forests</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging"><i class="fa fa-check"></i><b>4.1</b> Ensemble Learning Methods: Bagging</a></li>
+<li class="chapter" data-level="4.2" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#random-forests"><i class="fa fa-check"></i><b>4.2</b> Random Forests</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Applications of Random Forests in Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#results"><i class="fa fa-check"></i><b>5.1</b> Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Random Forests and Local Ancestry Inference</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="classification-decision-trees-the-building-blocks-of-random-forests" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Classification Decision Trees: The building blocks of Random Forests<a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-decision-trees-the-building-blocks-of-random-forests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction<a href="classification-decision-trees-the-building-blocks-of-random-forests.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We’ve found that Random Forests provide an excellent basis for elucidating the role of certain SNPs in relation to inferring local ancestry. Before diving into random forests, we will discuss their building blocks: decision trees. Within the context of inferring local ancestry, we want to figure out how to categorize a certain part of an individual’s genome using predictors, which in this case are our genetic variants, SNPs. Below is a decision tree, labeled with its general components.</p>
+<center>
+<div class="figure">
+<img src="figures/fig4.png" alt="" />
+<p class="caption">Figure 4: Depiction of the structure of a decision tree, labeled with each component. Image sourced from <a href="https://www.javatpoint.com/machine-learning-decision-tree-classification-algorithm" class="uri">https://www.javatpoint.com/machine-learning-decision-tree-classification-algorithm</a></p>
+</div>
+</center>
+<p>Our first initial node, or the root node, essentially takes our most influential predictor and classifies our data into subsets for the subsequent decision nodes. Each split in the data made at each decision node is representative of regions in the predictor space. That is, each split on a predictor results in regions of the predictor space. Each following decision node is made up of the next best predictive parameters. At the end of each decision node, the classification tree makes its prediction at the leaf nodes. In general, the strategy of a classification tree is to continuously split the data into subsets or regions based on predictor values until the regions are uniform in their outcomes.</p>
+</div>
+<div id="classification-tree-example" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Classification Tree Example<a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To better grasp the idea of decision trees, below is an example a classification tree in R I’ve produced using code from Prof. Brianna Heggseth’s Statistical Machine Learning class site using the Urban Land Cover dataset from the UCI Machine Learning Repository which contains data collected on the observed type of land cover (determined by human eye) and “spectral, size, shape, and texture information” computed from a given image.</p>
+<center>
+<div class="figure">
+<img src="figures/fig5.png" alt="" />
+<p class="caption">Figure 5: Example classification tree</p>
+</div>
+</center>
+<p>The tree above was trained using data collected on textural and shape characteristics of photographs of land from our dataset, the codebook for which is available <a href="https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover">here</a>. The variables themselves aren’t very pertinent, but they can be helpful to keep in mind when trying to see the metric by which the tree splits the data by. However, for ease of reference, here are the four predictors chosen by the decision tree above at each node:</p>
+<ul>
+<li>NDVI: Normalized Difference Vegetation Index (spectral variable)</li>
+<li>Bright_100: Brightness (spectral variable)</li>
+<li>SD_NIR: Standard deviation of Near Infrared (texture variable)</li>
+<li>GLCM2: Gray-Level Co-occurrence Matrix</li>
+</ul>
+<p>Take a look at the red, leftmost leaf node. If the condition at the branching point is true, we go left. If false, we go right. In this case, if NDVI is less than -0.01, the tree predicts that a case with such a value will be classified as asphalt.
+Notice that there are three lines of text within this node:</p>
+<ul>
+<li>Asphalt, which is the predicted class</li>
+<li>The predicted probability of the node’s classification: 97% for asphalt, 0.02 for grass and tree classifications respectively</li>
+<li>22%, depicting the proportion of the cases from the dataset within this node.</li>
+</ul>
+<p>Also notice that as we follow the tree down to its leaves, the regions become more homogenous in the classes represented than the original regions before the split, as seen in the second line of text in each node. We can see that for each class of land type, the predicted probability of the node’s classification either increases closer to 1.0, or decreases closer to 0.0 with each split. This is what we know as node purity, quantified by what’s known as the Gini index, or the impurity measure (not to be confused with the economic measure of income inequality). When a node is pure, or when most of the cases belong to one class, the Gini index takes a small value. When a region is impure, or when cases in a given node belong to different classes, the Gini index takes a large value.</p>
+<p>At face value, we can see that trees are fairly easy to understand, and you may have seen or used a classification tree at some point in your life. This is one of the greatest advantages of trees – that they are generally intuitive and easy to explain. However, one of the biggest disadvantages to decision trees is that they are high in variance, and thus prone to overfitting. The cost of the simplicity of a tree is instability. Classification trees are known to be a greedy algorithm, meaning that <em>locally optimal</em> splits in the data are made at each node, thus reducing its capabilities to produce <em>globally optimal</em> classifications. In other words, one of the decision tree’s fundamental flaws is that it does not know when to stop growing, or when to stop making splits in the data, which can result in an overfitted tree.</p>
+<center>
+<div class="figure">
+<img src="figures/fig6.png" alt="" />
+<p class="caption">Figure 6: On the left is an example of an overfit tree. On the right is this tree, pruned.</p>
+</div>
+</center>
+<p>An over-specific decision tree takes away from its role as an algorithm by reducing its replicability/generalizability. With any algorithm, our goal is to take new data and run it through our algorithm which has been created and trained on existing data. The tree on the left of Fig. 5 is an example of what might happen if the tuning parameters are too loose – it will make decisions on splits in the data which are overfit to the data that was used to train it, thus poorly generalizing to new data. So, running a case through this tree will likely result in an inaccurate classification. On the right, is a “pruned” tree. The pruned tree provides looser parameters by which splits are made, resulting in a smaller tree. Though more generalizable, a smaller tree can fail to capture big-picture ideas from the dataset – small changes in the data can result in a large change in the final estimated tree.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bagging-and-random-forests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/edit/master/03-trees.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/blob/master/03-trees.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
