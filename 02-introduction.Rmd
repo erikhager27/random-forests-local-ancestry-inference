@@ -6,7 +6,7 @@ The human genome consists of 23 pairs of chromosomes, each of which contains mil
 
 <center>
 
-![Figure 1: This image depicts segments of two copies of a person’s chromosome, representing one received from each parent. The outlined section represents a SNV, showing a single position along the strands where different alleles (A/T vs. G/C) were received from the two parents. (Source: Kelsey Grinde) ](/Users/brianlee/Dropbox/My Mac (Brian’s MacBook Pro)/Desktop/2022 FALL/STAT 494/GWAS_rf/figures/fig1.png)
+![Figure 1: This image depicts segments of two copies of a person’s chromosome, representing one received from each parent. The outlined section represents a SNV, showing a single position along the strands where different alleles (A/T vs. G/C) were received from the two parents. (Source: Kelsey Grinde) ](./figures/fig1.png)
 
 </center>
 
