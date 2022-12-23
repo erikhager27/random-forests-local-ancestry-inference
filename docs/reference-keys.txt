@@ -1,7 +1,6 @@
 welcome-to-our-ebook
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
 introduction-to-gwas-ancestry-and-local-ancestry-inference
 basic-genetics
 gwas-and-why-ancestry-matters
 project-motivations-local-ancestry-inference
+a-caucus-race-and-a-long-tale
