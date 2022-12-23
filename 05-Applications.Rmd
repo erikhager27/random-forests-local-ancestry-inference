@@ -4,7 +4,7 @@ The random forest algorithm can be applied to genetic data to infer local ancest
 
 <center>
 
-![Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries.(Source: Freddy Barragan)  ](./figures/fig9.png)
+![Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries. (Source: Freddy Barragan)  ](./figures/fig9.png)
 
 </center>
 
@@ -12,7 +12,7 @@ In order to demonstrate the algorithm in action, we constructed a toy dataset in
 
 We then used the `caret` package in RStudio to train a random forest algorithm on our toy dataset. We used the default settings in caret to create a model with 500 trees to classify our ancestry populations, and tuned the variable subset size to range from 1 to 30 predictors. We set up the algorithm to select the model with the variable subset size that maximizes out of bag accuracy as our final choice. Our hope was that the model would correctly pick out our SNPs of interest as the best predictors to split upon, and that out of bag error estimates might give us an idea of how accurately a random forest model might classify something like local ancestry in the presence of noisy data.
 
-## Results
+## Toy Data Results
 
 <center>
 

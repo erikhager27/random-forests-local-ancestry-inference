@@ -78,10 +78,10 @@
 <li class="chapter" data-level="2.2" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters"><i class="fa fa-check"></i><b>2.2</b> GWAS and Why Ancestry Matters</a></li>
 <li class="chapter" data-level="2.3" data-path="introduction-to-gwas-ancestry-and-local-ancestry-inference.html"><a href="introduction-to-gwas-ancestry-and-local-ancestry-inference.html#project-motivations-local-ancestry-inference"><i class="fa fa-check"></i><b>2.3</b> Project Motivations &amp; Local Ancestry Inference</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html"><i class="fa fa-check"></i><b>3</b> Classification Decision Trees: The building blocks of Random Forests</a>
+<li class="chapter" data-level="3" data-path="decision-trees-the-building-blocks-of-random-forests.html"><a href="decision-trees-the-building-blocks-of-random-forests.html"><i class="fa fa-check"></i><b>3</b> Decision Trees: The building blocks of Random Forests</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="classification-decision-trees-the-building-blocks-of-random-forests.html"><a href="classification-decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
+<li class="chapter" data-level="3.1" data-path="decision-trees-the-building-blocks-of-random-forests.html"><a href="decision-trees-the-building-blocks-of-random-forests.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="decision-trees-the-building-blocks-of-random-forests.html"><a href="decision-trees-the-building-blocks-of-random-forests.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Bagging and Random Forests</a>
 <ul>
@@ -90,7 +90,7 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Applications of Random Forests in Local Ancestry Inference</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#results"><i class="fa fa-check"></i><b>5.1</b> Results</a></li>
+<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#toy-data-results"><i class="fa fa-check"></i><b>5.1</b> Toy Data Results</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -117,13 +117,13 @@
 <center>
 <div class="figure">
 <img src="figures/fig9.png" alt="" />
-<p class="caption">Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries.(Source: Freddy Barragan)</p>
+<p class="caption">Figure 9: This image depicts how genetic data with known ancestry is organized, as well as how decision trees are used for classifying these ancestries. (Source: Freddy Barragan)</p>
 </div>
 </center>
 <p>In order to demonstrate the algorithm in action, we constructed a toy dataset intended to represent one window of the genome of 1,000 individuals from two different ancestry populations, with 500 observations assigned to each group. To constitute our window, we used the rbinom() function in RStudio to generate MACs of 0 or 1 for 4 SNPs of interest and 26 noise SNPs, comprising a total of 30 variables. The SNPs of interest contained MACs generated from different rbinom() frequencies for people in each of our two populations, with the intention of these being important predictors for a decision tree classifying the populations to split on. The noise SNPs were generated using the same rbinom() frequency for all 1,000 observations, with the intention of these being variables that would hurt the accuracy of a tree forced to split on only a random subset of predictors.</p>
 <p>We then used the <code>caret</code> package in RStudio to train a random forest algorithm on our toy dataset. We used the default settings in caret to create a model with 500 trees to classify our ancestry populations, and tuned the variable subset size to range from 1 to 30 predictors. We set up the algorithm to select the model with the variable subset size that maximizes out of bag accuracy as our final choice. Our hope was that the model would correctly pick out our SNPs of interest as the best predictors to split upon, and that out of bag error estimates might give us an idea of how accurately a random forest model might classify something like local ancestry in the presence of noisy data.</p>
-<div id="results" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Results<a href="applications-of-random-forests-in-local-ancestry-inference.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="toy-data-results" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Toy Data Results<a href="applications-of-random-forests-in-local-ancestry-inference.html#toy-data-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <center>
 <div class="figure">
 <img src="figures/fig10.png" alt="" />

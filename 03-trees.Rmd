@@ -1,4 +1,4 @@
-# Classification Decision Trees: The building blocks of Random Forests
+# Decision Trees: The Building Blocks of Random Forests
 
 ## Introduction
 
@@ -6,7 +6,7 @@ We’ve found that Random Forests provide an excellent basis for elucidating the
 
 <center>
 
-![Figure 4: Depiction of the structure of a decision tree, labeled with each component. Image sourced from https://www.javatpoint.com/machine-learning-decision-tree-classification-algorithm](./figures/fig4.png)
+![Figure 4: This depicts the basic structure of a decision tree. (Source: https://www.javatpoint.com/machine-learning-decision-tree-classification-algorithm)](./figures/fig4.png)
 
 </center>
 
@@ -19,7 +19,7 @@ To better grasp the idea of decision trees, below is an example a classification
 
 <center>
 
-![Figure 5: Example classification tree](./figures/fig5.png)
+![Figure 5: This is an example of a classification tree for land types. (Source: https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover)](./figures/fig5.png)
 
 </center>
 
@@ -43,7 +43,7 @@ At face value, we can see that trees are fairly easy to understand, and you may 
 
 <center>
 
-![Figure 6: On the left is an example of an overfit tree. On the right is this tree, pruned.](./figures/fig6.png)
+![Figure 6: On the left is an example of an overfit tree. On the right is this tree, pruned. (Source: https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover)](./figures/fig6.png)
 
 </center>
 
