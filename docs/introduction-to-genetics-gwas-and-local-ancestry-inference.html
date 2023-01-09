@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction to Genetics, GWAS, and Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling</title>
+  <meta name="description" content="Chapter 2 Introduction to Genetics, GWAS, and Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction to Genetics, GWAS, and Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction to Genetics, GWAS, and Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  
+  
+  
+
+<meta name="author" content="Erik Hager, Brian Lee" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="decision-trees.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GWAS, LAI, and Random Forests</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to our eBook!</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-genetics-gwas-and-local-ancestry-inference.html"><a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html"><i class="fa fa-check"></i><b>2</b> Introduction to Genetics, GWAS, and Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-genetics-gwas-and-local-ancestry-inference.html"><a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#basic-genetics"><i class="fa fa-check"></i><b>2.1</b> Basic Genetics</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-genetics-gwas-and-local-ancestry-inference.html"><a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters"><i class="fa fa-check"></i><b>2.2</b> GWAS and Why Ancestry Matters</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-genetics-gwas-and-local-ancestry-inference.html"><a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#local-ancestry-inference"><i class="fa fa-check"></i><b>2.3</b> Local Ancestry Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="decision-trees.html"><a href="decision-trees.html"><i class="fa fa-check"></i><b>3</b> Decision Trees</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="decision-trees.html"><a href="decision-trees.html#tree-structure-and-the-classification-task"><i class="fa fa-check"></i><b>3.1</b> Tree Structure and the Classification Task</a></li>
+<li class="chapter" data-level="3.2" data-path="decision-trees.html"><a href="decision-trees.html#classification-tree-example"><i class="fa fa-check"></i><b>3.2</b> Classification Tree Example</a></li>
+<li class="chapter" data-level="3.3" data-path="decision-trees.html"><a href="decision-trees.html#tree-pruning-and-overfitting"><i class="fa fa-check"></i><b>3.3</b> Tree Pruning and Overfitting</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Bagging and Random Forests</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging"><i class="fa fa-check"></i><b>4.1</b> Ensemble Learning Methods: Bagging</a></li>
+<li class="chapter" data-level="4.2" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#the-random-forest-algorithm"><i class="fa fa-check"></i><b>4.2</b> The Random Forest Algorithm</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="application-of-random-forests-in-local-ancestry-inference.html"><a href="application-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Application of Random Forests in Local Ancestry Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="application-of-random-forests-in-local-ancestry-inference.html"><a href="application-of-random-forests-in-local-ancestry-inference.html#toy-data-generation"><i class="fa fa-check"></i><b>5.1</b> Toy Data Generation</a></li>
+<li class="chapter" data-level="5.2" data-path="application-of-random-forests-in-local-ancestry-inference.html"><a href="application-of-random-forests-in-local-ancestry-inference.html#random-forest-results"><i class="fa fa-check"></i><b>5.2</b> Random Forest Results</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GWAS, Local Ancestry Inference, and Random Forest Modeling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-genetics-gwas-and-local-ancestry-inference" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction to Genetics, GWAS, and Local Ancestry Inference<a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#introduction-to-genetics-gwas-and-local-ancestry-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="basic-genetics" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Basic Genetics<a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#basic-genetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The human genome consists of 23 pairs of chromosomes, each of which contains millions of nucleotide base pairs joined together in double helixes. The nucleotides adenine (A) and thymine (T) always pair with each other, as do cytosine (C) and guanine (G). At any point along someone’s DNA strand, the sequence of A’s, T’s, C’s, and G’s dictates characteristics of that person. When comparing any two human genomes, the entire strands of nucleotides will be about 99% identical. However, there are small portions of the genome where the sequences vary from person to person, and these places are called genetic variants. Different base pair sequences in these areas are what cause variation among humans at conception.</p>
+<center>
+<div class="figure">
+<img src="figures/fig1.png" alt="" />
+<p class="caption">Figure 1: This image depicts segments of two copies of a person’s chromosome, representing one received from each parent. The outlined section represents a SNV, showing a single position along the strands where different alleles (A/T vs. G/C) were received from the two parents. (Source: Kelsey Grinde)</p>
+</div>
+</center>
+<p>When humans are conceived, they receive one copy of all 23 chromosomes from their mother, and one copy from their father. Thus, when considering a <em>single-nucleotide variant</em> (SNV) at a particular position on any chromosome (depicted in Figure 1), it is the case that a person will have received one allele (A/T, G/C, etc.) from each parent at that position. These two alleles together carry the meaning of that SNV, potentially in the form of an observable trait. Most SNVs are considered biallelic, meaning only two of the four total base pair combinations (A/T, T/A, G/C, and C/G) are possible to be inherited as alleles at a SNV’s particular genomic position. The pair that occurs more commonly across the human population at a SNV is referred to as the major allele, and the less common pair is referred to as the minor allele. Whether a person has received 0, 1, or 2 minor alleles from their parents at a given position determines their <em>minor allele count</em> (MAC) at that spot. If the overall frequency of minor alleles for a given SNV is greater than 1% across the human population, it may instead be referred to as a <em>single-nucleotide polymorphism</em> (SNP) – it is an aggregation of data on individuals’ MACs at SNPs in particular that is commonly used as the backbone of genetic studies.</p>
+</div>
+<div id="gwas-and-why-ancestry-matters" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> GWAS and Why Ancestry Matters<a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#gwas-and-why-ancestry-matters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In order to learn about how various SNPs are linked to observable human traits, geneticists often conduct what are called <em>genome-wide association studies</em> (GWAS). These studies involve gathering genetic and qualitative data on many individuals, some of whom may possess a certain trait of interest. After acquiring the exact sequence of subjects’ genomes, experimenters sift through the sequences for SNPs and record their MACs at each one. Then, regression analysis can be performed to find correlations between individuals’ MACs at various SNPs and their observed traits. This helps experimenters draw conclusions about which SNPs are universally important in determining those traits.</p>
+<p>Ancestry, however, can often be a confounding factor that muddles the true relationship between SNPs and observed traits during GWAS, as depicted in Figure 2. Consider, for example, a study attempting to determine which SNPs cause brown hair, but without accounting for German ancestry as a possible confounder. A genotype with SNPs resulting from a German pedigree might show a strong correlation with brown hair if people of German descent are more likely to have brown hair in general. However, concluding that those particular SNPs cause brown hair would be erroneous, since it was really the fact that the people with those certain SNP characteristics were of German origin that made them more likely to have brown hair. Thus, gathering information about subjects’ ancestries is a vital part of GWAS, in that including such data in the regression models helps correct for this type of confounding effect.</p>
+<center>
+<div class="figure">
+<img src="figures/fig2.png" alt="" />
+<p class="caption">Figure 2: This is a DAG depicting the confounding effect of ancestry in GWAS. Doubt can be cast on a potential relationship between a genotype and a trait if ancestry has a true causal relationship with both. (Source: Kelsey Grinde)</p>
+</div>
+</center>
+</div>
+<div id="local-ancestry-inference" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Local Ancestry Inference<a href="introduction-to-genetics-gwas-and-local-ancestry-inference.html#local-ancestry-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In addition to analyzing the confounding effects of one’s overall ancestry, it is also useful to examine genetic ancestry at various local windows of the human genome. Our project is focused on the process known as <em>local ancestry inference</em> (LAI), wherein mathematical methods are used to infer the ancestral origins of <em>small segments</em> of the genome based on the presence, or absence, of genetic variants in these segments.</p>
+<center>
+<div class="figure">
+<img src="figures/fig3.png" alt="" />
+<p class="caption">Figure 3: Local ancestry inference can allow researchers to assign different ancestral categories to positions at each locus of an individual’s genome, denoted by the blocks of color in the following figure. (<a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fgnomad.broadinstitute.org%2Fnews%2F2021-12-local-ancestry-inference-for-latino-admixed-american-samples-in-gnomad%2F&amp;psig=AOvVaw3TFkKc1H0V9xsLOj6gGuQh&amp;ust=1671848748444000&amp;source=images&amp;cd=vfe&amp;ved=0CBAQjhxqFwoTCKjhhYzYjvwCFQAAAAAdAAAAABAD">source</a>)</p>
+</div>
+</center>
+<p>Within the academic realm, local ancestry inference is helpful in genetic analyses involving admixed groups: ethnic groups whose genomes have resulted from a recent mixture of two or more geographically-distinct ancestral populations. LAI is particularly useful in classifying the ancestry of diverse cohorts in GWAS, as well as for helping provide evidence of historical human migration patterns through admixture mapping.</p>
+<p>Perhaps most influential, however, are the commercial applications of LAI. Organizations such as 23andMe and Ancestry.com offer individual consumers valuable information about their family lineage and predispositions toward various diseases, obtained from GWAS models. These companies use statistical models built on previous aggregations of data for genetic characteristics such as ancestry to offer each customer predictions about these characteristics in accordance with new data from a sample of their DNA. This train-and-predict process provides a perfect example of how machine learning methods can be used in the field of genetics in general, and for LAI in particular.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="decision-trees.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/edit/master/02-introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/erikhager27/random-forests-local-ancestry-inference/blob/master/02-introduction.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

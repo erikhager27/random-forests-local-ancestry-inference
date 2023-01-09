@@ -6,18 +6,18 @@ We can mitigate the flaws of a decision tree by aggregating the results of a bun
 
 <center>
 
-![Figure 7: The idea of bootstrapping demonstrated. Image sourced from: https://online.stat.psu.edu/stat555/node/119/](./figures/fig7.png)
+![Figure 7: The idea of bootstrapping demonstrated. (Source: https://online.stat.psu.edu/stat555/node/119/)](./figures/fig7.png)
 
 </center>
 
 
 As shown in figure 7, Bagging is an ensemble learning technique which helps improve the performance and accuracy of machine learning algorithms by employing a resampling technique known as bootstrapping. From our true population, we take a sample as an estimation of our population of interest. From there, rather than collecting many new samples from the population, we can randomly sample multiple subsets of our collected data to simulate the collection of multiple new samples from the population of interest. Through this process, we can build a model which produces results more similar to the true sampling distribution. Now, extending this idea, we can produce multiple weak, unpruned learners for each bootstrapped sample, combining the predictions made by each of these results to create a more powerful algorithm. 
 
-## Random Forests
+## The Random Forest Algorithm
 
 <center>
 
-![Figure 8: Each individual tree has a different subset of predictors and thus differing classifications, both denoted by the varying colors of each decision node.](./figures/fig8.png)
+![Figure 8: Each individual tree has a different subset of predictors and thus differing classifications, both denoted by the varying colors of each decision node. ([source](https://dataaspirant.com/random-forest-algorithm-machine-learing/))](./figures/fig8.png)
 
 </center>
 

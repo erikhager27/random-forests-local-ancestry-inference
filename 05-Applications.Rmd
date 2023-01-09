@@ -1,4 +1,6 @@
-# Applications of Random Forests in Local Ancestry Inference
+# Application of Random Forests in Local Ancestry Inference
+
+## Toy Data Generation
 
 The random forest algorithm can be applied to genetic data to infer local ancestry by building and training a model on data where individuals’ ancestries are known. As shown in Figure 9, a data set can be constructed containing SNP MACs of various individuals known to come from different distinct ancestry populations. The SNP columns can be divided into local windows, each of which can be fed through the random forest model separately. The trees in the algorithm will ask questions about the MAFs of individuals in the given window, making splits based on the SNPs that demonstrate the greatest differences in MACs between people in the different ancestry groups. The many trees will each make splits based on these questions, and a bootstrapped aggregation of all of the trees will constitute a means for classifying any individual’s ancestry within a given window. This allows for a “painting” of each window of people’s genomes with the local ancestry inferred by the algorithm. 
 
@@ -12,7 +14,7 @@ In order to demonstrate the algorithm in action, we constructed a toy dataset in
 
 We then used the `caret` package in RStudio to train a random forest algorithm on our toy dataset. We used the default settings in caret to create a model with 500 trees to classify our ancestry populations, and tuned the variable subset size to range from 1 to 30 predictors. We set up the algorithm to select the model with the variable subset size that maximizes out of bag accuracy as our final choice. Our hope was that the model would correctly pick out our SNPs of interest as the best predictors to split upon, and that out of bag error estimates might give us an idea of how accurately a random forest model might classify something like local ancestry in the presence of noisy data.
 
-## Toy Data Results
+## Random Forest Results
 
 <center>
 

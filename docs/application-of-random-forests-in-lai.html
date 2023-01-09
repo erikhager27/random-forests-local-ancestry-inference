@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Applications of Random Forests in Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling</title>
-  <meta name="description" content="Chapter 5 Applications of Random Forests in Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  <title>Chapter 5 Application of Random Forests in LAI | GWAS, Local Ancestry Inference, and Random Forest Modeling</title>
+  <meta name="description" content="Chapter 5 Application of Random Forests in LAI | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Applications of Random Forests in Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  <meta property="og:title" content="Chapter 5 Application of Random Forests in LAI | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Applications of Random Forests in Local Ancestry Inference | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
+  <meta name="twitter:title" content="Chapter 5 Application of Random Forests in LAI | GWAS, Local Ancestry Inference, and Random Forest Modeling" />
   
   
   
@@ -89,10 +89,10 @@
 <li class="chapter" data-level="4.1" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#ensemble-learning-methods-bagging"><i class="fa fa-check"></i><b>4.1</b> Ensemble Learning Methods: Bagging</a></li>
 <li class="chapter" data-level="4.2" data-path="bagging-and-random-forests.html"><a href="bagging-and-random-forests.html#the-random-forest-algorithm"><i class="fa fa-check"></i><b>4.2</b> The Random Forest Algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html"><i class="fa fa-check"></i><b>5</b> Applications of Random Forests in Local Ancestry Inference</a>
+<li class="chapter" data-level="5" data-path="application-of-random-forests-in-lai.html"><a href="application-of-random-forests-in-lai.html"><i class="fa fa-check"></i><b>5</b> Application of Random Forests in LAI</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#toy-data-generation"><i class="fa fa-check"></i><b>5.1</b> Toy Data Generation</a></li>
-<li class="chapter" data-level="5.2" data-path="applications-of-random-forests-in-local-ancestry-inference.html"><a href="applications-of-random-forests-in-local-ancestry-inference.html#random-forest-results"><i class="fa fa-check"></i><b>5.2</b> Random Forest Results</a></li>
+<li class="chapter" data-level="5.1" data-path="application-of-random-forests-in-lai.html"><a href="application-of-random-forests-in-lai.html#toy-data-generation"><i class="fa fa-check"></i><b>5.1</b> Toy Data Generation</a></li>
+<li class="chapter" data-level="5.2" data-path="application-of-random-forests-in-lai.html"><a href="application-of-random-forests-in-lai.html#random-forest-results"><i class="fa fa-check"></i><b>5.2</b> Random Forest Results</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -113,10 +113,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="applications-of-random-forests-in-local-ancestry-inference" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Applications of Random Forests in Local Ancestry Inference<a href="applications-of-random-forests-in-local-ancestry-inference.html#applications-of-random-forests-in-local-ancestry-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="application-of-random-forests-in-lai" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Application of Random Forests in LAI<a href="application-of-random-forests-in-lai.html#application-of-random-forests-in-lai" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="toy-data-generation" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Toy Data Generation<a href="applications-of-random-forests-in-local-ancestry-inference.html#toy-data-generation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.1</span> Toy Data Generation<a href="application-of-random-forests-in-lai.html#toy-data-generation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The random forest algorithm can be applied to genetic data to infer local ancestry by building and training a model on data where individuals’ ancestries are known. As shown in Figure 9, a data set can be constructed containing SNP MACs of various individuals known to come from different distinct ancestry populations. The SNP columns can be divided into local windows, each of which can be fed through the random forest model separately. The trees in the algorithm will ask questions about the MAFs of individuals in the given window, making splits based on the SNPs that demonstrate the greatest differences in MACs between people in the different ancestry groups. The many trees will each make splits based on these questions, and a bootstrapped aggregation of all of the trees will constitute a means for classifying any individual’s ancestry within a given window. This allows for a “painting” of each window of people’s genomes with the local ancestry inferred by the algorithm.</p>
 <center>
 <div class="figure">
@@ -128,7 +128,7 @@
 <p>We then used the <code>caret</code> package in RStudio to train a random forest algorithm on our toy dataset. We used the default settings in caret to create a model with 500 trees to classify our ancestry populations, and tuned the variable subset size to range from 1 to 30 predictors. We set up the algorithm to select the model with the variable subset size that maximizes out of bag accuracy as our final choice. Our hope was that the model would correctly pick out our SNPs of interest as the best predictors to split upon, and that out of bag error estimates might give us an idea of how accurately a random forest model might classify something like local ancestry in the presence of noisy data.</p>
 </div>
 <div id="random-forest-results" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Random Forest Results<a href="applications-of-random-forests-in-local-ancestry-inference.html#random-forest-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.2</span> Random Forest Results<a href="application-of-random-forests-in-lai.html#random-forest-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <center>
 <div class="figure">
 <img src="figures/fig10.png" alt="" />

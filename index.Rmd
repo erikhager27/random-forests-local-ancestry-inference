@@ -1,12 +1,16 @@
 --- 
-title: "Random Forests and Local Ancestry Inference"
+title: "GWAS, Local Ancestry Inference, and Random Forest Modeling"
 author: "Erik Hager, Brian Lee"
 site: bookdown::bookdown_site
 ---
 
 # Welcome to our eBook!
 
-This bookdown document serves as a digital artifact of our final presentation on Random Forests and Local Ancestry Inference as part of our Statistical Genetics capstone course at Macalester College. We intend to illustrate how machine learning techniques can help provide useful insights in the field of genetics, focusing on random forest modeling in particular.
+This website serves as a digital artifact of our talk on GWAS, Local Ancestry Inference, and Random Forest Modeling, as part of our Statistical Genetics capstone course at Macalester College. We intend to illustrate how statistical machine learning methods can help provide useful insights in the field of genetics, focusing on the random forest algorithm in particular.
 
-Beginning in Chapter 2, we provide an introduction to basic genetics, genome-wide association studies and local ancestry inference. In Chapter 3, we discuss how machine learning can help accomplish genetic inferences through the use of decision trees. Building off of this discussion in Chapter 4, we discuss ensemble learning and the advantages of extending tree building with bootstrap aggregation and random forest modeling. In our final section, we hope to unify our project by applying the material and techniques discussed in previous chapters to a small case study using a toy genetic dataset.
+Beginning in Chapter 2, we provide an introduction to some basic genetic vocabulary, genome-wide association studies, and local ancestry inference. We then describe how machine learning can help accomplish genetic inferences through the use of decision trees in Chapter 3. Building off of this discussion, we discuss ensemble learning and the advantages of extending tree building with bootstrap aggregation and random forest modeling in Chapter 4. In our final section, we hope to unify our project by applying the material and techniques discussed in previous chapters to a small case study involving a toy genetic dataset that we generated.
+
+
+
+We would like to thank our professor, Dr. Kelsey Grinde, for all of her help in guiding us through the learning that culminated in this project. 
 

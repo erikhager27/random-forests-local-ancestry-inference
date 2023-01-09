@@ -1,7 +1,6 @@
-# Decision Trees: The Building Blocks of Random Forests
+# Decision Trees
 
-## Introduction
-
+## Tree Structure and the Classification Task
 We’ve found that Random Forests provide an excellent basis for elucidating the role of certain SNPs in relation to inferring local ancestry. Before diving into random forests, we will discuss their building blocks: decision trees. Within the context of inferring local ancestry, we want to figure out how to categorize a certain part of an individual’s genome using predictors, which in this case are our genetic variants, SNPs. Below is a decision tree, labeled with its general components.
 
 <center>
@@ -14,12 +13,13 @@ Our first initial node, or the root node, essentially takes our most influential
 
 ## Classification Tree Example
 
-To better grasp the idea of decision trees, below is an example a classification tree in R I’ve produced using code from Prof. Brianna Heggseth’s Statistical Machine Learning class site using the Urban Land Cover dataset from the UCI Machine Learning Repository which contains data collected on the observed type of land cover (determined by human eye) and “spectral, size, shape, and texture information” computed from a given image.
+To better grasp the idea of decision trees, below is an example a classification tree in R I’ve produced using code from Prof. Brianna Heggeseth’s Statistical Machine Learning class site using the Urban Land Cover dataset from the UCI Machine Learning Repository which contains data collected on the observed type of land cover (determined by human eye) and “spectral, size, shape, and texture information” computed from a given image.
 
 
 <center>
 
-![Figure 5: This is an example of a classification tree for land types. (Source: https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover)](./figures/fig5.png)
+![Figure 5: This is an example of a classification tree for land types.  
+(Source: https://ajohns24.github.io/253_Fall_2020/random-forests-bagging-ensemble-methods.html)](./figures/fig5.png)
 
 </center>
 
@@ -39,11 +39,14 @@ Notice that there are three lines of text within this node:
 
 Also notice that as we follow the tree down to its leaves, the regions become more homogenous in the classes represented than the original regions before the split, as seen in the second line of text in each node. We can see that for each class of land type, the predicted probability of the node’s classification either increases closer to 1.0, or decreases closer to 0.0 with each split. This is what we know as node purity, quantified by what’s known as the Gini index, or the impurity measure (not to be confused with the economic measure of income inequality). When a node is pure, or when most of the cases belong to one class, the Gini index takes a small value. When a region is impure, or when cases in a given node belong to different classes, the Gini index takes a large value.
 
+## Tree Pruning and Overfitting
+
 At face value, we can see that trees are fairly easy to understand, and you may have seen or used a classification tree at some point in your life. This is one of the greatest advantages of trees – that they are generally intuitive and easy to explain. However, one of the biggest disadvantages to decision trees is that they are high in variance, and thus prone to overfitting. The cost of the simplicity of a tree is instability. Classification trees are known to be a greedy algorithm, meaning that *locally optimal* splits in the data are made at each node, thus reducing its capabilities to produce *globally optimal* classifications. In other words, one of the decision tree’s fundamental flaws is that it does not know when to stop growing, or when to stop making splits in the data, which can result in an overfitted tree.
 
 <center>
 
-![Figure 6: On the left is an example of an overfit tree. On the right is this tree, pruned. (Source: https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover)](./figures/fig6.png)
+![Figure 6: On the left is an example of an overfit tree. On the right is this tree, pruned.  
+(Source: https://ajohns24.github.io/253_Fall_2020/random-forests-bagging-ensemble-methods.html)](./figures/fig6.png)
 
 </center>
 
